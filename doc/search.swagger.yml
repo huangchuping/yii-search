@@ -1,0 +1,127 @@
+swagger: "2.0"
+info:
+  description: "."
+  version: "1.0.0"
+  title: "游戏检索API"
+  contact:
+    email: "mufeng@taoshouyou.com"
+host: "http://cdt2-openapi.taoshouyou.com"
+basePath: "/api/search/game"
+tags:
+- name: "search"
+  description: "游戏检索"
+schemes:
+- "http"
+paths:
+  /auto-complete:
+    get:
+      tags:
+      - "search"
+      summary: "游戏名称自动补全"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "keyword"
+        in: "query"
+        description: "检索关键字"
+        required: true
+        type: "string"
+      - name: "page"
+        in: "query"
+        description: "页码"
+        required: false
+        type: "string"
+      - name: "size"
+        in: "query"
+        description: "页大小"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "成功"
+          schema:
+            type: "array"
+            items:
+                type: "object"
+                $ref: "#/definitions/Result"
+        400:
+          description: "无效输入"
+  /index:
+    get:
+      tags:
+      - "search"
+      summary: "游戏名称模糊搜索"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "keyword"
+        in: "query"
+        description: "检索关键字"
+        required: true
+        type: "string"
+      - name: "page"
+        in: "query"
+        description: "当前页"
+        required: false
+        type: "string"
+      - name: "size"
+        in: "query"
+        description: "页大小"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "成功"
+          schema:
+            type: "array"
+            items:
+                type: "object"
+                $ref: "#/definitions/Result"
+        400:
+          description: "无效输入"
+definitions:
+  Result:
+      type: "object"
+      required:
+        - "errorCode"
+        - "errMessage"
+      properties:
+        errorCode:
+          type: "string"
+          example: 200
+        errMessage:
+          type: "string"
+          example: "ok"
+        data:
+          type: "object"
+          $ref: "#/definitions/Pagination"
+  Pagination:
+      type: "object"
+      properties:
+        page:
+            type: "object"
+            properties:
+              pagecount:
+                  type: "string"
+                  example: 41
+              totalcount:
+                  type: "string"
+                  example: 323 
+        list:
+            type: 'array'
+            $ref: "#/definitions/Game"
+  Game:
+      type: "object"
+      required:
+      - "id"
+      - "name"
+      properties:
+        id:
+          type: "string"
+          example: 12
+        name:
+          type: "string"
+          example: "王者荣耀"
+        pic:
+          type: "string"
+          example: "/img/2017-06-21/14/d0917f3ffa72d8894c480e49ab7f6a37-pc-l.jpg"

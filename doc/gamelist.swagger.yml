@@ -1,0 +1,75 @@
+swagger: "2.0"
+info:
+  description: "."
+  version: "1.0.0"
+  title: "全部游戏列表"
+  contact:
+    email: "mufeng@taoshouyou.com"
+host: "cdt3-web.taoshouyou.com"
+basePath: "/search"
+schemes:
+- "http"
+paths:
+  "/static/common/static/json/gamelist.json.html":
+      get:
+        summary: "全部游戏，并以热门、正出售数量排序"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "_"
+          in: "query"
+          description: "时间戳"
+          example: "1511855246324"
+          required: false
+          type: "string"
+        responses:
+          200:
+            description: "成功"
+            schema:
+              $ref: "#/definitions/AllGame"
+          404:
+            description: "未找到"
+definitions:
+  AllGame:
+      type: "object"
+      required:
+      - "all"
+      - "hots"
+      properties:
+        all:
+          type: "object"
+          additionalProperties:
+              type: "array"
+              items:
+                  $ref: '#/definitions/Game'
+        hots:
+          type: "object"
+          additionalProperties:
+              type: "array"
+              items:
+                  $ref: '#/definitions/Game'
+  Game:
+      type: "object"
+      required:
+      - "id"
+      - "name"
+      - "firstletter"
+      - "spelling"
+      properties:
+        id:
+            type: "integer"
+            example: 5494
+        hot:
+            type: "boolean"
+            example:  true
+        name:
+          type: "string"
+          example: "王者荣耀"
+        firstletter:
+          type: "string"
+          example: "W"
+          additionalProperties:
+            type: string
+        spelling:
+          type: "string"
+          example: "wangzherongyao"
