@@ -1,12 +1,12 @@
 <?php
 
-namespace tsy\search\console;
+namespace hcp\search\console;
 
 use yii\console\Controller;
 use yii\helpers\Console;
 use Yii;
-use tsy\search\components\GameExporter;
-use tsy\search\components\GameIndex;
+use hcp\search\components\GameExporter;
+use hcp\search\components\GameIndex;
 
 class GameController extends Controller
 {

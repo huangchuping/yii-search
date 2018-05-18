@@ -1,6 +1,6 @@
 <?php
 
-namespace tsy\search\components;
+namespace hcp\search\components;
 
 use Yii;
 use Elastica\Client;
@@ -35,11 +35,11 @@ class GameIndex
                             ]
                         ],
                         "pinyin_analyzer" => [
-                            "tokenizer" => "tsy_pinyin"
+                            "tokenizer" => "hcp_pinyin"
                         ],
                       ],
                       "tokenizer" => [
-                        "tsy_pinyin" => [
+                        "hcp_pinyin" => [
                             "type" => "pinyin",
                             "keep_first_letter" => true,
                             "keep_separate_first_letter" => false,
@@ -188,7 +188,7 @@ class GameIndex
 
     public function createIndex()
     {
-        $elasticaIndex = $this->client->getIndex("idx_tsy_game");
+        $elasticaIndex = $this->client->getIndex("idx_hcp_game");
         if ($elasticaIndex->exists()) {
             return;
         }
@@ -215,7 +215,7 @@ class GameIndex
     public function import()
     {
          $elasticaType = $this->client
-                     ->getIndex("idx_tsy_game")
+                     ->getIndex("idx_hcp_game")
                      ->getType('game')
                      ;
 

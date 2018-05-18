@@ -1,6 +1,6 @@
 <?php
 
-namespace  tsy\search\components;
+namespace  hcp\search\components;
 
 use Elastica\Client;
 use Elastica\Query\MatchAll;
@@ -26,7 +26,7 @@ class GameExporter
     {
         $search = new Search($client);
         $search
-        ->addIndex('idx_tsy_game')
+        ->addIndex('idx_hcp_game')
         ->addType('game')
         ;
         $this->search = $search;

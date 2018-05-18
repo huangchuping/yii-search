@@ -1,6 +1,6 @@
 <?php
 
-namespace tsy\search\components;
+namespace hcp\search\components;
 
 use yii\base\Object;
 use Elastica\Client;

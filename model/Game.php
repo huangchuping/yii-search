@@ -1,6 +1,6 @@
 <?php
 
-namespace tsy\search\model;
+namespace hcp\search\model;
 
 class Game
 {
@@ -10,7 +10,7 @@ class Game
     {
         $client = \Yii::$app->gameElastica->getClient();
         $this->elasticaType = $client
-             ->getIndex("idx_tsy_game")
+             ->getIndex("idx_hcp_game")
              ->getType('game')
              ;
     }

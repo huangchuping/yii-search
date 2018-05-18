@@ -1,6 +1,6 @@
 <?php
 
-namespace tsy\search\components;
+namespace hcp\search\components;
 
 use \Yii;
 use Elastica\Query\MatchPhrase;
@@ -35,7 +35,7 @@ class GameSearch
 
         $search = new Search($this->client);
         $search
-        ->addIndex('idx_tsy_game')
+        ->addIndex('idx_hcp_game')
         ->addType('game');
 
         $pinyin = new MatchPhrase("name.pinyin", ["query" => $keyword, "boost" => 0.4]);

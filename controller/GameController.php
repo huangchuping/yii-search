@@ -1,11 +1,11 @@
 <?php
 
-namespace tsy\search\controller;
+namespace hcp\search\controller;
 
 use \Yii;
 use yii\base\Controller;
 use yii\base\Response;
-use tsy\search\components\GameSearch;
+use hcp\search\components\GameSearch;
 use app\components\Tool;
 
 class GameController extends Controller
