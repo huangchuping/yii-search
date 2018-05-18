@@ -1,7 +1,7 @@
 {
-    "name": "yii2/yii-search",
+    "name": "hcp/es-search",
     "description": "The Search module for Yii2",
-    "keywords": ["yii2",  "search", "yii"],
+    "keywords": ["es",  "search", "yii"],
     "type": "yii2-extension",
     "authors": [
         {
